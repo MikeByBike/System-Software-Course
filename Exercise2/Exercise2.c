@@ -18,7 +18,7 @@ long long power = 1; //variable
     	if (n1 == n2) //checks if first number is equal with the second number
     	   printf("Both numbers are equal to each other \n");
     	   
-    	if (n1 > n2) { //checks if first number is biggger than the second number
+    	if (n1 > n2) { //checks if first number is biggger than the second number 
      	   diff = n1-n2; //finds difference between first number and second number if the first number is bigger
      	   div = (float)n1/n2; //divides first number by second number as first number is bigger
     	   printf("The largest number is: %d\n", n1);
@@ -37,10 +37,10 @@ long long power = 1; //variable
     	
         printf("The difference of two numbers is: %d\n", diff);
         
-	if (n1 != 0 || n2 != 0) { //if either number is 0 defines that its not possible to divide
-	printf("The division is not possible \n");
+	if (n1 == 0 || n2 == 0) { //if either number is 0 defines that its not possible to divide
+	printf("The division is not possible. \n");
 	}
-	else { //if none of the numbers is 0 then posibility of division occurs 
+	else { //if none of the numbers is 0 then posibility of division occurs
         printf("The division between two numbers is: %.2lf\n", div);
         }
         
@@ -49,5 +49,4 @@ long long power = 1; //variable
     	   --n2; //ensures that second number is exponent
     	}
     	printf("The second number power of your first number is: %lld\n", power);
-    	
 }
