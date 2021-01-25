@@ -61,23 +61,40 @@ srand(time(NULL)); // random seed
 int rng = rand() %100; //generates random number from 1 to 100
     	printf("The random number generated from 1 to 100 is: %d\n", rng);
    	
-   	while (rng != 0) { //checks odd or even only if the number is not 0
-   	  if (rng%2 == 0) { //checks if the number when divided by 2 the remainder is 0 so its even
-	    printf("The number generated is even\n");
-	  }
-  	  else {//if there is a remainder then its odd
-    	    printf("The number generated is odd\n");
-    	  }
-    	  if (rng%3 == 0 && rng%8 == 0) { //checks if nuber is divisible 3 and 8
-    	    printf("The number generated is divisible with 3 and 8\n");
-    	  }
-	  else { //if not it outputs that its not divisible by 3 and 8
-	    printf("The number generated is not divisible with 3 and 8\n"); 
-	  }
-    	return 0;
+   	if (rng%2 == 0) { //checks if the number when divided by 2 the remainder is 0 so its even
+	  printf("The number generated is even\n");
+	}
+  	else {//if there is a remainder then its odd
+    	  printf("The number generated is odd\n");
     	}
+    	if (rng%3 == 0 && rng%8 == 0) { //checks if nuber is divisible 3 and 8
+    	  printf("The number generated is divisible with 3 and 8\n");
+    	}
+	else { //if not it outputs that its not divisible by 3 and 8
+	  printf("The number generated is not divisible with 3 and 8\n"); 
+	}
     	
     	if ((rng = 0)) {//if the number is 0 then it outputs that its neither even or odd
     	  printf("The number generated is neither even or odd\n");
-    	}    			
+    	}
+    	
+    	//Exercise 2 Question 5
+int array[10] = {1, 4, 9, 11, 15, 23, 25, 50, 60, 88};
+int i = 0;
+int count = 0;
+	printf("In order the array is: \n");
+	
+	for (count = 0; count < 10; count++) { //adding to counter
+          printf("%d\t", array[count]);
+          if (array[count] == rng){ //checks if the random generated number is in array
+    	    printf("The random generated number is in the array!: %d & %d !\n", array[count], rng );
+    	  }
+    	}
+    	  
+    	printf("\nIn reverse order the array is: \n");  
+    	for (i = 9; i >= 0; i--)  {  //adding to counter in reverse
+          printf("%d\t", array[i]);  
+    	}
+    	printf("\nProgram Done.\n");
+    	return 0;	  			
 }
