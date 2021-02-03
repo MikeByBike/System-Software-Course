@@ -2,8 +2,7 @@
 //Author:	Michalis Iona
 //Description:	Multiple tasks such as:
 //		Counting the sum of numbers using a loop, sum of even numbers using loop and generating a random number and assign it some tasks.
-//		Coding with pseudocode while using a random generated number
-//		Coding with pseudocode while using a random generated number, and assigns different tasks to do
+
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -48,4 +47,4 @@ srand(time(NULL)); // random seed
 	    printf("The sum of the number multiplied itself until a maximum of 2-byte storage used is: %d\n", MultiItself); //Note: 2 Bytes unsigned short are from 0 to 65,535
      	    return 0;
 }
-	    
+
