@@ -1,6 +1,6 @@
 //File name:	Exercise3Part3.c
 //Author:	Michalis Iona
-//Description:	Generating the Collatz sequence for the random number
+//Description:	Generating the Collatz sequence for the random generated number
 
 #include <stdio.h>
 #include <stdlib.h> 
