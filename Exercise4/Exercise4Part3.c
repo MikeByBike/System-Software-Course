@@ -6,18 +6,13 @@
 #include <stdlib.h>
 #include <time.h>
 
-//implementing Rock = 1. Paper = 2, Scissord = 3
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-
-int RandomNumber(int n){
+int RandomNumber(int n){ //random number function
     srand(time(NULL));
     return rand() % n;
 }
 
-int outcome(char c1, char c2){
+int outcome(char c1, char c2){ //each round outcome
     if(c1 == c2) {
         return -1;
     }
@@ -48,7 +43,7 @@ int main(){
     char dict[] = {'R', 'P', 'S'};
     printf("Rock Paper Scissors Game!\n");
 
-    for (int input =0; input<3; input++){
+    for (int input =0; input<3; input++) {
         printf("Choose - 1 is Rock - 2 is Paper - 3 is Scissors\n");
         printf("Your Turn; ");
         scanf("%d", &choice);
@@ -63,11 +58,11 @@ int main(){
         printf("Computers choice: %c \n", ComputerSelect);
 
 
-        if (outcome(ComputerSelect, UserSelect) == 1){
+        if (outcome(ComputerSelect, UserSelect) == 1) {
             ComputerScore++;
             printf("Round lost!\n");
         }
-        else if(outcome(ComputerSelect, UserSelect) == -1){
+        else if(outcome(ComputerSelect, UserSelect) == -1) {
             ComputerScore++;
             UserScore++;
             printf("Draw. Both computer and you got 1 point!\n");
@@ -87,18 +82,15 @@ int main(){
         printf(" %d | %d \n", UserScore, ComputerScore);
 
         //Comparing score
-        if(UserScore > ComputerScore)
-        {
+        if(UserScore > ComputerScore) {
             printf("You Win!\n");
         }
-        else if(UserScore < ComputerScore)
-        {
+        else if(UserScore < ComputerScore) {
             printf("Game Over!\n");
         }
-        else
-        {
+        else {
             printf("Draw!\n");
         }
 
         return 0;
-    }
+}
