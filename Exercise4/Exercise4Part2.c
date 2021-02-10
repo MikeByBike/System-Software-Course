@@ -1,7 +1,7 @@
 //File name:	Exercise4Part2.c
 //Author:	Michalis Iona
 //Description:	Multiple tasks such as:
-//		-Generating random numbers to calculate system software grades.
+//		-Generating random numbers to calculate a system software grade.
 
 
 #include <stdio.h>
