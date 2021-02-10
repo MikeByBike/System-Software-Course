@@ -1,7 +1,7 @@
 //File name:	Exercise4Part1.c
 //Author:	Michalis Iona
 //Description:	Multiple tasks such as:
-//		-User Inputs numbers. Numbers provide following outputs on amount of Negative integers, sum of all numbers and sum of numbers only divisible by three.
+//		-User Inputs  many numbers. Numbers provide following outputs on amount of Negative integers, sum of all numbers and sum of numbers only divisible by three.
 
 #include <stdio.h>
 #include <stdlib.h>
