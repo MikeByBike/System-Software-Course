@@ -1,6 +1,6 @@
 //File name:	Exercise4Part3.c
 //Author:	Michalis Iona
-//Description:	Rock, Paper, Scissors game.
+//Description:	Creating Rock, Paper, Scissors game.
 
 #include <stdio.h>
 #include <stdlib.h>
