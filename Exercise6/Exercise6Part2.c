@@ -1,6 +1,6 @@
 //File name:	Exercise6Part2.c
 //Author:	Michalis Iona
-//Description:	
+//Description:	Using pointers for arrays
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -8,78 +8,59 @@
 
 #define SIZE 10
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-
-#define SIZE 10
-
-void printArray(int *pointerArray, int lengthArray);
-int *fillArray(int *pointerArray);
-int *selectionSort(int *pointerArray);
-
-int randomInt(int lowest, int highest);
-void pointerSwap(int *firstPointer, int *secondPointer);
+//Initialising
+void printArray(int *pointerArray, int size); 
+void fillArray(int *arrayFiller); 
+void sortArray(int *sort, int length); 
 
 
-
-
-void printArray(int *pointerArray, int lengthArray){
-    for(int i = 0; i < lengthArray; i++){
-        printf("The %2d. number is: %d\n", i+1, *pointerArray);
-        pointerArray++;
-    }
-}
-
-int *fillArray(int *pointerArray){
-    for(int i = 0; i < 10; i++){
-        *pointerArray = randomInt(0, 100);
-        pointerArray++;
-    }
-    return (pointerArray - 10);
-}
-
-int *selectionSort(int *pointerArray){
-    int *biggestNumberPointer = NULL;
-    biggestNumberPointer = pointerArray;
-    for(int i = 0; i < 10; i++){
-        for(int j = 0; j < 10-i; j++){
-            //Find the biggest number in the array
-            if(*pointerArray > *biggestNumberPointer){
-                biggestNumberPointer = pointerArray;
-            }
-            pointerArray++;
-        }
-        //Swap the biggest Number with the last number
-        pointerSwap(pointerArray, biggestNumberPointer);
-        pointerArray -= 10-i;
-    }
-    return arrayPointer;
-}
-
-int randomInt(int lowest, int highest){
-    return(rand() % (highest - lowest) + lowest);
-}
-
-void pointerSwap(int *firstPointer, int *secondPointer){
-    int temp = *firstPointer;
-    *firstPointer = *secondPointer;
-    *secondPointer = temp;
-}
+//main
 int main(){
-    srand((unsigned)time(NULL));
-    int numbersArray[SIZE] = {15, 7, 5, 9, 45, 11, 59, 6, 34, 38};
-    int secondArray[10] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-    int *pointerArray = NULL;
-    
-    printf("First array: \n");
-    pointerArray = &numbersArray[0];
-    printArray(selectionSort(pointerArray), SIZE);
-    
-    printf("\nSecond array: \n");
-    pointerArray = &secondArray[0];
-    printArray(selectionSort(fillArray(pointerArray)), 10);
-    
-    return 0;
+	int currentArray[10] = {3, 4, 7, 11, 15, 23, 25, 35, 50, 70}; //creating our own array
+	int *currentPointer = &currentArray[0]; //creating pointer for our own array and pointing it
+	srand(time(NULL));
+	int randomArray[SIZE] = {}; //creating a random array
+  	int *randomPointer = &randomArray[0]; //creating pointer for the random array and pointing it
+
+  	printArray(currentPointer, 10); //calling function for printing
+  	fillArray(randomPointer); //calling function for filling 
+  	printArray(randomPointer, SIZE); //calling function for printing random array
+
+  	printf("Array has been sorted from largest to smallest. The Result is: \n");
+  	sortArray(randomPointer,SIZE); //calling function for sort
+  	printArray(randomPointer, SIZE); //calling function for printing sorted array
+	
+  	return 0;
 }
 
+void printArray(int *pointerArray, int size) { //printing array that has parameters and proper size
+  	printf("Numbers in the array: \n");
+  	int count = 0; //count
+  	for (count = 0; count < size; count++) { //0 to size of array
+    		printf("Number %d is at pointer: %d\n", count, *pointerArray);
+    		pointerArray++; //increase pointer
+  	}
+
+}
+
+void fillArray (int *arrayFiller){ //function for filling array with random numbers, with parameters of array
+  	int count = 0; //count
+  	for (count = 0; count < SIZE; count++) {//0 to size of array
+    		*(arrayFiller + count) = rand() % 1000000; //random numbers are filled accordingly to the counter
+  	}
+}
+
+void sortArray (int *sort, int length){ //function for sorting array from largest to smallest with parameters of array
+  	int x = 0; //count for first loop
+  	int y = 0; //count for second loop
+  	int temp = 0; //hold temporary variables
+   	for (x = 0; x < length; x++) { // length step
+   		for (y = x + 1; y < length; y++) { //length step + 1
+    			if (*(sort + x) > *(sort + y)) {//if current number is smaller than the next one smaller value takes importance
+      				temp = *(sort + x);
+      				*(sort + x) = *(sort + y);
+      				*(sort + y) = temp;
+     			}
+    		}
+   	}
+}
