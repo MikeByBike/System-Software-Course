@@ -1,6 +1,6 @@
 /* 
  * File:   		Armstrong.h
- * Author: 		
+ * Author: 		Michalis Iona
  * Description: 
  */
 
