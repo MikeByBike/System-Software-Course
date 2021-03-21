@@ -8,5 +8,6 @@
 #define FINDER_H
 
 int *guessNumber(int *arrayPointer, int size, int input);
+int arraySize(int *array);
 
 #endif /* FINDER_H */

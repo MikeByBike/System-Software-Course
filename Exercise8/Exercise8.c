@@ -6,12 +6,14 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <time.h>
 #include "Array.h"
 #include "Calculation.h"
 #include "Finder.h"
 
 #define SIZE 10
+#define MAXSUM 243
 
 int main() {
  	int *found = NULL; //if userguess matches number in array variable
@@ -20,7 +22,7 @@ int main() {
 
   	randomgenerator(); //calls to seed number
 
-  	dynamicptr = (int*)malloc(SIZE * sizeof(int)); //assigns the pointer as malloc 
+  	dynamicptr = (int*)malloc(SIZE * sizeof(int)); //assigns the pointer as malloc
 
   	memoryallocated(dynamicptr); //calls to check memory
 
@@ -51,6 +53,43 @@ int main() {
   	memoryallocated(dynamicptr); //calls to check memory
   	printf("Status: Memory is free.\n");
 
-  	return 0; //ends program
+	//Question 5
 
+	char *userFile = "Numbers.txt"; //numbers to be filled
+  	char *testFile = "Test.txt"; //test file to check calculation
+	int *inputPtr = NULL; //first array ptr to pass into function text to fill
+  	int *q5Array = NULL; //array to hold first filled array from numbers.txt
+  	int *sumTest = NULL;//texttofill function
+  	int *filledTest = NULL;//filled array from file text.txt
+  	int q5ArraySize = 0; //size of first array
+  	int sizeTest = 0; //size of second array
+
+	q5Array = (int*)malloc(MAXSUM * sizeof(int)); //allocated dynamic memory
+  	memset(q5Array, '-', MAXSUM * sizeof(int));//sets empty cells
+
+  	sumTest = (int*)malloc(MAXSUM * sizeof(int)); //allocated dynamic memory
+  	memset(sumTest, '-', MAXSUM * sizeof(int));//sets empty cells
+
+  	inputPtr = (int*)malloc(MAXSUM * sizeof(int)); //allocated dynamic memory
+  	memset(inputPtr, '-', MAXSUM * sizeof(int)); //sets empty cells
+
+  	filledTest = (int*)malloc(MAXSUM * sizeof(int)); //allocated dynamic memory
+  	memset(filledTest, '-', MAXSUM * sizeof(int));//sets empty cells
+
+  	q5Array = textinarray(inputPtr, userFile); //calling numbers from numbers.txt
+  	q5ArraySize = arraySize(q5Array); //calling size of new array
+ 	printArray(q5Array, q5ArraySize); //calling new array for error checking
+
+  	filledTest = textinarray(sumTest, testFile); //calling to fill array with test.txt
+  	sizeTest = arraySize(filledTest);//calling size of new array
+  	printArray(filledTest,sizeTest);//prints new array
+  	maxSubArray(sumTest, sizeTest);//calling biggest 5 adjacent sum value
+
+  	free(q5Array); //frees memory
+	free(filledTest); //frees memory
+
+
+  	printf("Status: Memory is free.\n");
+
+  	return 0;
 }

@@ -11,5 +11,6 @@ void printArray(int *pointerArray, int size);
 int *fillArray(int *arrayFiller, int size);
 void randomgenerator();
 void memoryallocated(int *dynamic);
+int *textinarray(int *textarray, char *path);
 
 #endif /* ARRAY_H */

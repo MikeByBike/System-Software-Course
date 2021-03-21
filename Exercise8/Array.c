@@ -35,3 +35,24 @@ void memoryallocated(int *dynamic) {
         	printf("Memory is not allocated.\n");
   	}
 }
+
+int *textinarray(int *textarray, char *path) {
+	FILE *open = fopen(path, "r"); //opens the file
+	int counter = 0; //counter variable
+
+	printf("File %s has been opened \n", path); //message to show that file has been opened
+
+	if ( open == NULL || counter <= 5) {// if no file has been found
+                printf("Error!, file has not been found OR Numbers are less than 5\n");
+                return 0;
+  }
+
+	while(!feof(open)) { //while the end of file hasnt been read
+		fscanf(open, "%d", &*(textarray + counter)); //scans numbers and place them into array+position
+		counter++; //next position in array
+	}
+
+	fclose(open); //closes file
+	printf("The file %s has been closed, with the amount of %d numbers added to the array. \n", path, counter - 1); //ensures file is closed and prints entries
+	return textarray; //returns the array filled
+}
